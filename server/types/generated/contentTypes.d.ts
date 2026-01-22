@@ -430,34 +430,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCategorytoolCategorytool
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'categorytools';
-  info: {
-    displayName: 'Category Tool';
-    pluralName: 'categorytools';
-    singularName: 'categorytool';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::categorytool.categorytool'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiHeroHero extends Struct.SingleTypeSchema {
   collectionName: 'heroes';
   info: {
@@ -515,6 +487,10 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     shot: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     state: Schema.Attribute.Integer;
+    technologies: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::technology.technology'
+    >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -522,30 +498,40 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiProyectProyect extends Struct.SingleTypeSchema {
-  collectionName: 'proyects';
+export interface ApiTechnologyTechnology extends Struct.CollectionTypeSchema {
+  collectionName: 'technologies';
   info: {
-    displayName: 'proyect';
-    pluralName: 'proyects';
-    singularName: 'proyect';
+    displayName: 'technology';
+    pluralName: 'technologies';
+    singularName: 'technology';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    Astro: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    CSS: Schema.Attribute.String;
+    HTML: Schema.Attribute.String;
+    JacaScript: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::proyect.proyect'
+      'api::technology.technology'
     > &
       Schema.Attribute.Private;
+    Next: Schema.Attribute.String;
+    projects: Schema.Attribute.Relation<'manyToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
+    React: Schema.Attribute.String;
+    Tailwind: Schema.Attribute.String;
+    TypeScript: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Vite: Schema.Attribute.String;
   };
 }
 
@@ -1059,10 +1045,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::categorytool.categorytool': ApiCategorytoolCategorytool;
       'api::hero.hero': ApiHeroHero;
       'api::project.project': ApiProjectProject;
-      'api::proyect.proyect': ApiProyectProyect;
+      'api::technology.technology': ApiTechnologyTechnology;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -34,6 +34,12 @@
         "images",
         "files"
       ]
+    },
+    "technologies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::technology.technology",
+      "inversedBy": "projects"
     }
   }
 }
