@@ -1,12 +1,20 @@
-export interface project {
+export interface Project {
   title: string;
   description: string;
-  shot: {
-    url: string;
-  };
+  shot: { url: string };
   preview_link: string;
   code_link: string;
   state: number;
-  tags?: string[] | string;
-  frameworks?: string[];
+  technologies: Array<{
+    id: number;
+    React?: string;
+    Tailwind?: string;
+    Astro?: string;
+    Next?: string;
+    TypeScript?: string;
+    JacaScript?: string;
+    CSS?: string;
+    Vite?: string;
+    HTML?: string;
+  }>;
 }

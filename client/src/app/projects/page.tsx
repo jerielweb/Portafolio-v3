@@ -1,9 +1,10 @@
 import { fetchProjectData, BASE_URL } from "@/libs/projects.api";
-import type { project } from "@/types/types.project";
+import type { Project } from "@/types/types.project";
+import { TECHNOLOGIES } from "@/consts/technologies";
 
 export default async function ProjectsPage() {
   const response = await fetchProjectData("/api/projects/?populate=*");
-  const projects: project[] = response?.data || [];
+  const projects: Project[] = response?.data || [];
 
   console.log(projects);
 
@@ -16,18 +17,42 @@ export default async function ProjectsPage() {
           return (
             <article
               key={p}
-              className="flex gap-2 rounded-2xl m-8 overflow-hidden lg:pr-0 lg:pl-0 flex-col-reverse xl:flex-row lg:max-w-6xl xl:h-96 border-3 border-purple-400 justify-between items-center hover:border-purple-100 active:border-purple-100 transition duration-200 ease-out"
+              className="flex gap-2 rounded-2xl m-8 overflow-hidden lg:pr-0 lg:pl-0 flex-col-reverse xl:flex-row xl:w-6xl lg:max-w-6x1 xl:h-97 border-3 border-purple-400 justify-between items-center hover:border-purple-100 active:border-purple-100 transition duration-200 ease-out"
             >
-              <div className="xl:max-w-lg w-full xl:w-auto flex flex-1 flex-col h-full px-5 py-3">
-                <div className="flex h-full flex-col justify-evenly gap-2">
+              <div className="xl:max-w-lg w-full xl:w-auto flex flex-1 flex-col h-full px-4 py-3">
+                <div className="flex h-full flex-col justify-around gap-2">
                   <h2 className="text-4xl font-bold">{project.title}</h2>
                   <div>
-                    <p className="max-w-100 text-[1.3rem] font-semibold">
+                    <p className="max-w-100 text-[1.2rem] font-semibold">
                       {project.description}
                     </p>
                   </div>
-                  <div>
+                  <div className="flex gap-2 flex-col">
                     <h2 className="text-3xl font-bold">Stacks</h2>
+                    <div className="flex gap-2 h-6 w-fit items-center justify-center">
+                      {project.technologies.map((tech) => {
+                        // Iterar sobre las propiedades del objeto tech que no sean null y no sean id/documentId
+                        return Object.entries(tech)
+                          .filter(([key, value]) =>
+                              value !== null &&
+                              !["id","documentId", "createdAt", "updatedAt", "publishedAt",].includes(key),
+                          ).map(([key]) => {
+                            const techName = key
+                            const ComponentToRender = TECHNOLOGIES[techName];
+                            return (
+                              <div key={`${tech.id}-${key}`} title={techName}>
+                                {ComponentToRender ? (
+                                  <ComponentToRender className="flex w-fit h-7" />
+                                ) : (
+                                  <span className="text-[10px] text-gray-400">
+                                    {techName}
+                                  </span>
+                                )}
+                              </div>
+                            );
+                          });
+                      })}
+                    </div>
                   </div>
                   <div className="flex lg:w-full lg:flex-row gap-5 font-semibold text-center items-center justify-center sm:justify-normal sm:items-normal">
                     <a
