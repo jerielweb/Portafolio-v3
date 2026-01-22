@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categorytools",
+  "info": {
+    "singularName": "categorytool",
+    "pluralName": "categorytools",
+    "displayName": "Category Tool"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
