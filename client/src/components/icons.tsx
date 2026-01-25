@@ -1,3 +1,5 @@
+'use client'
+
 export const React = ({ className }: { className?: string }) => {
   return (
     <svg
@@ -111,3 +113,124 @@ export const Vite = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+export const HTML = ({ className }: { className?: string }) => {
+  return (
+    <svg viewBox="0 0 452 520" className={className}>
+      <path fill="#e34f26" d="M41 460L0 0h451l-41 460-185 52" />
+      <path fill="#ef652a" d="M226 472l149-41 35-394H226" />
+      <path
+        fill="#ecedee"
+        d="M226 208h-75l-5-58h80V94H84l15 171h127zm0 147l-64-17-4-45h-56l7 89 117 32z"
+      />
+      <path
+        fill="#fff"
+        d="M226 265h69l-7 73-62 17v59l115-32 16-174H226zm0-171v56h136l5-56z"
+      />
+    </svg>
+  );
+};
+
+export const JavaScript = ({ className }: { className?: string }) => {
+  return (
+    <svg viewBox="0 0 1052 1052" className={className}>
+      <path fill="#f0db4f" d="M0 0h1052v1052H0z" />
+      <path
+        d="M965.9 801.1c-7.7-48-39-88.3-131.7-125.9-32.2-14.8-68.1-25.399-78.8-49.8-3.8-14.2-4.3-22.2-1.9-30.8 6.9-27.9 40.2-36.6 66.6-28.6 17 5.7 33.1 18.801 42.8 39.7 45.4-29.399 45.3-29.2 77-49.399-11.6-18-17.8-26.301-25.4-34-27.3-30.5-64.5-46.2-124-45-10.3 1.3-20.699 2.699-31 4-29.699 7.5-58 23.1-74.6 44-49.8 56.5-35.6 155.399 25 196.1 59.7 44.8 147.4 55 158.6 96.9 10.9 51.3-37.699 67.899-86 62-35.6-7.4-55.399-25.5-76.8-58.4-39.399 22.8-39.399 22.8-79.899 46.1 9.6 21 19.699 30.5 35.8 48.7 76.2 77.3 266.899 73.5 301.1-43.5 1.399-4.001 10.6-30.801 3.199-72.101zm-394-317.6h-98.4c0 85-.399 169.4-.399 254.4 0 54.1 2.8 103.7-6 118.9-14.4 29.899-51.7 26.2-68.7 20.399-17.3-8.5-26.1-20.6-36.3-37.699-2.8-4.9-4.9-8.7-5.601-9-26.699 16.3-53.3 32.699-80 49 13.301 27.3 32.9 51 58 66.399 37.5 22.5 87.9 29.4 140.601 17.3 34.3-10 63.899-30.699 79.399-62.199 22.4-41.3 17.6-91.3 17.4-146.6.5-90.2 0-180.4 0-270.9z"
+        fill="#323330"
+      />
+    </svg>
+  );
+};
+
+export const Tailwind = ({ className }: { className?: string }) => {
+  return (
+    <svg fill="none" viewBox="0 0 54 33" className={className}>
+      <g clipPath="url(#tailwindcss__a)">
+        <path
+          fill="#38bdf8"
+          fillRule="evenodd"
+          d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z"
+          clipRule="evenodd"
+        />
+      </g>
+      <defs>
+        <clipPath id="tailwindcss__a">
+          <path fill="#fff" d="M0 0h54v32.4H0z" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+
+export const Next = ({className}: {className?: string}) => (
+  <svg viewBox="0 0 180 180" className={className}>
+    <mask
+      height="180"
+      id="nextjs_icon_dark__:r8:mask0_408_134"
+      maskUnits="userSpaceOnUse"
+      width="180"
+      x="0"
+      y="0"
+      style={{ maskType: "alpha" }}
+    >
+      <circle cx="90" cy="90" fill="black" r="90" />
+    </mask>
+    <g mask="url(#nextjs_icon_dark__:r8:mask0_408_134)">
+      <circle cx="90" cy="90" data-circle="true" fill="black" r="90" />
+      <path
+        d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z"
+        fill="url(#nextjs_icon_dark__:r8:paint0_linear_408_134)"
+      />
+      <rect
+        fill="url(#nextjs_icon_dark__:r8:paint1_linear_408_134)"
+        height="72"
+        width="12"
+        x="115"
+        y="54"
+      />
+    </g>
+    <defs>
+      <linearGradient
+        gradientUnits="userSpaceOnUse"
+        id="nextjs_icon_dark__:r8:paint0_linear_408_134"
+        x1="109"
+        x2="144.5"
+        y1="116.5"
+        y2="160.5"
+      >
+        <stop stopColor="white" />
+        <stop offset="1" stopColor="white" stopOpacity="0" />
+      </linearGradient>
+      <linearGradient
+        gradientUnits="userSpaceOnUse"
+        id="nextjs_icon_dark__:r8:paint1_linear_408_134"
+        x1="121"
+        x2="120.799"
+        y1="54"
+        y2="106.875"
+      >
+        <stop stopColor="white" />
+        <stop offset="1" stopColor="white" stopOpacity="0" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+export const Astro = ({className}: {className?: string}) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 128 128" className={className}>
+    <g>
+      <path d="M47.7 107.1c-5.5-5-7.2-15.7-4.9-23.4 4 4.9 9.6 6.4 15.4 7.3 8.9 1.3 17.6.8 25.9-3.2l2.8-1.7a18 18 0 0 1-7.2 20l-5.5 3.8c-5.6 3.8-7.2 8.2-5 14.7l.2.7a14 14 0 0 1-6.6-5.6 15.8 15.8 0 0 1-2.6-8.6c0-1.5 0-3-.2-4.5-.5-3.7-2.2-5.3-5.5-5.4-3.3-.1-5.9 2-6.6 5.2l-.2.7Z"/>
+      <path d="M16 82.4s16.5-8 33-8l12.4-38.3c.5-2 1.8-3.2 3.3-3.2 1.6 0 3 1.3 3.4 3.2l12.4 38.3c19.6 0 33 8 33 8l-28-76c-.8-2.3-2.2-3.7-4-3.7H48c-1.8 0-3.1 1.4-4 3.7l-28 76Z"/>
+    </g>
+    <path fill="url(#a)" d="M47.7 107.1c-5.5-5-7.2-15.7-4.9-23.4 4 4.9 9.6 6.4 15.4 7.3 8.9 1.3 17.6.8 25.9-3.2l2.8-1.7a18 18 0 0 1-7.2 20l-5.5 3.8c-5.6 3.8-7.2 8.2-5 14.7l.2.7a14 14 0 0 1-6.6-5.6 15.8 15.8 0 0 1-2.6-8.6c0-1.5 0-3-.2-4.5-.5-3.7-2.2-5.3-5.5-5.4-3.3-.1-5.9 2-6.6 5.2l-.2.7Z"/>
+
+    <defs>
+      <linearGradient id="a" x1="64.7" x2="77.4" y1="119.2" y2="77.4" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#D83333"/>
+        <stop offset="1" stop-color="#F041FF"/>
+      </linearGradient>
+    </defs>
+  </svg>
+)

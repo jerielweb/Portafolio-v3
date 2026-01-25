@@ -1,9 +1,9 @@
 import { getHeroSections, BASE_URL } from "@/libs/hero.api";
-
+import ProjectsPage from "@/app/projects/page";
 
 export default async function Home() {
   const heroData = await getHeroSections();
-  const { header, title, sub_title, curriculum, is_working } = heroData;
+  const { header, title, sub_title, curriculum, is_working, About } = heroData;
 
 const profileImageUrl = heroData.Image?.[0]?.profile?.url?.startsWith('http')
   ? heroData.Image[0].profile.url
@@ -54,6 +54,14 @@ const profileImageUrl = heroData.Image?.[0]?.profile?.url?.startsWith('http')
           </div>
         </div>
       </section>
+      <section>
+            <div>
+              <h1>
+                {About.T_about}
+              </h1>
+            </div>
+      </section>
+      <ProjectsPage />
     </>
   );
 }

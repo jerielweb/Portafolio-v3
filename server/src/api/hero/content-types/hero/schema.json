@@ -31,6 +31,12 @@
       "components": [
         "hero.profile"
       ]
+    },
+    "About": {
+      "type": "dynamiczone",
+      "components": [
+        "hero.about"
+      ]
     }
   }
 }

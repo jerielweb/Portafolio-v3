@@ -31,7 +31,6 @@ export default async function ProjectsPage() {
                     <h2 className="text-3xl font-bold">Stacks</h2>
                     <div className="flex gap-2 h-6 w-fit items-center justify-center">
                       {project.technologies.map((tech) => {
-                        // Iterar sobre las propiedades del objeto tech que no sean null y no sean id/documentId
                         return Object.entries(tech)
                           .filter(([key, value]) =>
                               value !== null &&

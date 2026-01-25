@@ -441,6 +441,7 @@ export interface ApiHeroHero extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    About: Schema.Attribute.DynamicZone<['hero.about']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
