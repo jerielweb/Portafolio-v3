@@ -13,8 +13,15 @@ const HERO_SECTIONS = {
           }
         }
       }
+    },
+    About: {
+        on: {
+          "hero.about": {
+            fields: ["T_About", "text", "linkdedin", "git_hub"]
+          }
+        }
     }
-  }
+  },
 }
 
 export async function getHeroSections() {

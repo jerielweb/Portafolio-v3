@@ -1,0 +1,35 @@
+import { getSkilsSections, BASE_URL } from "@/libs/skiks.api";
+import Image from "next/image";
+import type { Skill } from "@/types/types.skills";
+
+export default async function SkillsList() {
+  const skills = (await getSkilsSections()) as Skill[];
+  return (
+    <section className="flex min-h-162.5 text-purple-100 flex-col gap-10 justify-center w-full items-center px-2">
+      <h2 className="text-center font-extrabold sm:text-5xl text-4xl">
+        Conocimientos
+      </h2>
+      <div className="flex max-w-5xl flex-row flex-wrap gap-5 items-center justify-center">
+        {skills.map((skils: Skill) => (
+          <a
+            key={skils.id}
+            href={skils.url}
+            className="flex items-center justify-center flex-col gap-5 rounded-3xl border-2 p-4 h-50 w-37.5 size-fit border-purple-100 hover:shadow-lg hover:shadow-purple-100 active:shadow-purple-100 transition duration-200 ease-out"
+            rel="noopener norefered"
+            target="_blank"
+          >
+            <Image
+              src={`${BASE_URL}${skils.Logo.url}`}
+              className="size-27 rounded pointer-events-none aspect-square"
+              alt={skils.Logo.name}
+              itemType={skils.Logo.mime}
+              height={500}
+              width={500}
+            />
+            <p className="text-xl">{skils.Name}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}

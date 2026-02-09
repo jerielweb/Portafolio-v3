@@ -2,18 +2,21 @@ import { fetchProjectData, BASE_URL } from "@/libs/projects.api";
 import type { Project } from "@/types/types.project";
 import { TECHNOLOGIES } from "@/consts/technologies";
 
-export default async function ProjectsPage() {
+export default async function ProjectsPage({ limit, ShowBtnPage = false, Title = false }: { limit?: number; ShowBtnPage?: boolean; Title?: boolean } = {}) {
   const response = await fetchProjectData("/api/projects/?populate=*");
   const projects: Project[] = response?.data || [];
-
-  console.log(projects);
+  const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
   return (
     <>
       <section className="flex min-h-162.5 text-purple-100 flex-col gap-2 justify-center w-full items-center">
-        {projects.map((project, p) => {
+        {Title === true ? (
+          <h1 className="text-4xl font-bold text-center">Proyectos Destacados</h1>
+        ) : (
+          <h1 className="text-4xl font-bold text-center"> Todos Mis Proyectos</h1>
+        )}
+        {displayedProjects.map((project, p) => {
           const image = `${BASE_URL}${project.shot.url}`;
-
           return (
             <article
               key={p}
@@ -32,11 +35,19 @@ export default async function ProjectsPage() {
                     <div className="flex gap-2 h-6 w-fit items-center justify-center">
                       {project.technologies.map((tech) => {
                         return Object.entries(tech)
-                          .filter(([key, value]) =>
+                          .filter(
+                            ([key, value]) =>
                               value !== null &&
-                              !["id","documentId", "createdAt", "updatedAt", "publishedAt",].includes(key),
-                          ).map(([key]) => {
-                            const techName = key
+                              ![
+                                "id",
+                                "documentId",
+                                "createdAt",
+                                "updatedAt",
+                                "publishedAt",
+                              ].includes(key),
+                          )
+                          .map(([key]) => {
+                            const techName = key;
                             const ComponentToRender = TECHNOLOGIES[techName];
                             return (
                               <div key={`${tech.id}-${key}`} title={techName}>
@@ -99,6 +110,11 @@ export default async function ProjectsPage() {
             </article>
           );
         })}
+        {ShowBtnPage && (
+        <a href="/projects" className="text-[20px] size-fit bg-purple-700 py-2 px-5 rounded-[10px] transition active:scale-93 font-semibold cursor-pointer mx-3 items-center justify-center flex mt-4 text-center max-w-65 sm:max-w-none">
+          Ver todos los Proyectos
+        </a>
+        )}
       </section>
     </>
   );
