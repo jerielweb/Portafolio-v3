@@ -1,5 +1,5 @@
 import qs from 'qs';
-export const BASE_URL = process.env.BASE_URL || 'http://localhost:1337';
+export const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
 const HERO_SECTIONS = {
   populate: {
@@ -32,7 +32,7 @@ export async function getHeroSections() {
 
 export async function fetchHeroData(url: string) {
     try {
-        const response = await fetch(`${BASE_URL}${url}`);
+        const response = await fetch(`${STRAPI_URL}${url}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

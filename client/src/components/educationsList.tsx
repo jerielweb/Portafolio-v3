@@ -1,25 +1,28 @@
-import { BASE_URL, getEducations } from "@/libs/educations.api";
+import { getEducations } from "@/libs/educations.api";
 import { LinkTo } from "./icons";
 import type { EducationsList as EducationsListType } from "@/types/types.educations";
 
 export default async function EducationsList() {
   const educations: EducationsListType = await getEducations();
-  console.log(educations);
+  const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
+
   return (
     <section>
       <h1 className="text-center font-extrabold sm:text-5xl text-4xl">
         Educación
       </h1>
       <div className="size-full flex flex-wrap justify-center gap-8 mt-10">
-        {educations.map((education) => (
+        {educations?.map((education) => (
           <div
             className="flex flex-col gap-2 justify-center items-center max-w-sm border-2 border-purple-400 hover:border-purple-100 active:border-purple-100 transition duration-200 ease-out p-3 rounded-lg text-[15px] mx-5"
             key={education.id}
           >
             <div>
               <img
-                src={`${BASE_URL}${education.certificate.url}`}
-                alt={education.hash}
+                src={education.certificate.url.startsWith('http')
+                  ? education.certificate.url 
+                  : `${STRAPI_URL}${education.certificate.url}`}
+                alt={education.title}
                 className="aspect-auto w-90 h-auto pointer-events-none"
               />
             </div>
@@ -37,10 +40,10 @@ export default async function EducationsList() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <p className="flex flex-row items-center justify-center gap-2">
+                <div className="flex flex-row items-center justify-center gap-2">
                   Sitio Oficial
                   <LinkTo className="size-5" />
-                </p>
+                </div>
               </a>
             </div>
           </div>
