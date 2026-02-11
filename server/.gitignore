@@ -36,31 +36,6 @@ $RECYCLE.BIN/
 # Packages
 ############################
 
-*.7z
-*.csv
-*.dat
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.seed
-*.so
-*.swo
-*.swp
-*.swn
-*.swm
-*.out
-*.pid
-
-
 ############################
 # Logs and databases
 ############################
@@ -73,10 +48,7 @@ $RECYCLE.BIN/
 # Misc.
 ############################
 
-*#
-ssl
 .idea
-nbproject
 
 .tsbuildinfo
 .eslintcache
@@ -85,11 +57,6 @@ nbproject
 # Node.js
 ############################
 
-lib-cov
-lcov.info
-pids
-logs
-results
 node_modules
 .node_history
 
@@ -118,7 +85,5 @@ yarn-error.log
 ############################
 
 .env
-license.txt
 .strapi
-.strapi-updater.json
-.strapi-cloud.json
+license.txt
