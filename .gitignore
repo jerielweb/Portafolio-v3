@@ -124,12 +124,4 @@ server/yarn-error.log
 # Strapi
 ############################
 
-server/.env
-server/license.txt
-server/exports
-server/.strapi
-server/build
-server/.strapi-updater.json
-server/.strapi-cloud.json
-server/.env
 
