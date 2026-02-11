@@ -77,11 +77,6 @@ server/*.pid
 # Logs and databases
 ############################
 
-server/.tmp
-server/*.log
-server/*.sql
-server/*.sqlite
-server/*.sqlite3
 
 
 ############################
@@ -124,7 +119,6 @@ server/yarn-error.log
 # Tests
 ############################
 
-server/coverage
 
 ############################
 # Strapi
@@ -134,7 +128,6 @@ server/.env
 server/license.txt
 server/exports
 server/.strapi
-server/dist
 server/build
 server/.strapi-updater.json
 server/.strapi-cloud.json

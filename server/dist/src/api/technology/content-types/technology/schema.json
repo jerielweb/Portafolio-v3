@@ -1,0 +1,48 @@
+{
+    "kind": "collectionType",
+    "collectionName": "technologies",
+    "info": {
+        "singularName": "technology",
+        "pluralName": "technologies",
+        "displayName": "technology"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "React": {
+            "type": "string"
+        },
+        "Tailwind": {
+            "type": "string"
+        },
+        "Astro": {
+            "type": "string"
+        },
+        "Next": {
+            "type": "string"
+        },
+        "TypeScript": {
+            "type": "string"
+        },
+        "JavaScript": {
+            "type": "string"
+        },
+        "CSS": {
+            "type": "string"
+        },
+        "Vite": {
+            "type": "string"
+        },
+        "HTML": {
+            "type": "string"
+        },
+        "projects": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::project.project",
+            "mappedBy": "technologies"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "collectionName": "components_hero_abouts",
+    "info": {
+        "displayName": "about",
+        "icon": "briefcase"
+    },
+    "options": {},
+    "attributes": {
+        "T_About": {
+            "type": "string"
+        },
+        "text": {
+            "type": "text"
+        },
+        "linkdedin": {
+            "type": "string"
+        },
+        "git_hub": {
+            "type": "string"
+        }
+    },
+    "config": {}
+}

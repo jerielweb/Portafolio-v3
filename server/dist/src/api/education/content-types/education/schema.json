@@ -1,0 +1,36 @@
+{
+    "kind": "collectionType",
+    "collectionName": "educations",
+    "info": {
+        "singularName": "education",
+        "pluralName": "educations",
+        "displayName": "Education"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "age": {
+            "type": "string"
+        },
+        "link": {
+            "type": "string"
+        },
+        "certificate": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files"
+            ]
+        },
+        "Instutution": {
+            "type": "string",
+            "required": true
+        }
+    }
+}

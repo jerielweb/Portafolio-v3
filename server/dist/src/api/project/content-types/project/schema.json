@@ -1,0 +1,45 @@
+{
+    "kind": "collectionType",
+    "collectionName": "projects",
+    "info": {
+        "singularName": "project",
+        "pluralName": "projects",
+        "displayName": "Project"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "text"
+        },
+        "preview_link": {
+            "type": "string"
+        },
+        "code_link": {
+            "type": "string"
+        },
+        "state": {
+            "type": "integer"
+        },
+        "shot": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images",
+                "files"
+            ]
+        },
+        "technologies": {
+            "type": "relation",
+            "relation": "manyToMany",
+            "target": "api::technology.technology",
+            "inversedBy": "projects"
+        }
+    }
+}

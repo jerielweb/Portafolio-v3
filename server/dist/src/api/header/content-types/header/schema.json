@@ -1,0 +1,39 @@
+{
+    "kind": "singleType",
+    "collectionName": "headers",
+    "info": {
+        "singularName": "header",
+        "pluralName": "headers",
+        "displayName": "Header"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "HomeLink": {
+            "type": "string"
+        },
+        "Download": {
+            "type": "string"
+        },
+        "CollectionPage": {
+            "type": "string"
+        },
+        "ProjectPage": {
+            "type": "string"
+        },
+        "HomeLinkName": {
+            "type": "string"
+        },
+        "DownloadName": {
+            "type": "string"
+        },
+        "CollectionName": {
+            "type": "string"
+        },
+        "ProjectPageName": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_hero_profiles",
+    "info": {
+        "displayName": "profile",
+        "icon": "user"
+    },
+    "options": {},
+    "attributes": {
+        "profile": {
+            "type": "media",
+            "multiple": false,
+            "allowedTypes": [
+                "images",
+                "files",
+                "videos",
+                "audios"
+            ]
+        }
+    },
+    "config": {}
+}
