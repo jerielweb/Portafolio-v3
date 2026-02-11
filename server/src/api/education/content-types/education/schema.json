@@ -27,6 +27,10 @@
         "images",
         "files"
       ]
+    },
+    "Instutution": {
+      "type": "string",
+      "required": true
     }
   }
 }

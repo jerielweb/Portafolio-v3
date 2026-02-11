@@ -92,7 +92,6 @@ server/*#
 server/ssl
 server/.idea
 server/nbproject
-server/
 server/.tsbuildinfo
 server/.eslintcache
 

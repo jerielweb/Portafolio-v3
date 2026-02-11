@@ -1,6 +1,7 @@
 import { getHeroSections, BASE_URL } from "@/libs/hero.api";
 import { GitHub, Linkedin } from "@/components/icons"
 import Skils from "@/components/skilsList";
+import EducationsList from "@/components/educationsList";
 import ProjectsPage from "@/app/projects/page";
 
 export default async function Home() {
@@ -11,8 +12,8 @@ export default async function Home() {
     : `${BASE_URL}${heroData.Image[0].profile.url}`;
 
   return (
-    <main className="flex flex-col items-center justify-center gap-10">
-      <section className="flex flex-col size-full pt-20 h-screen justify-center items-center gap-5 lg:flex-row text-balance max-h-300">
+    <main className="flex flex-col items-center justify-center gap-20">
+      <section className="flex flex-col size-full pt-20 h-screen justify-center items-center gap-15 lg:flex-row text-balance max-h-300">
         <div>
           <img
             src={profileImageUrl}
@@ -108,6 +109,7 @@ justify-center rounded-2xl overflow-hidden border-3 items-center mx-5 border-pur
       ShowBtnPage={true}
       limit={3} />
       <Skils />
+      <EducationsList />
     </main>
   );
 }
