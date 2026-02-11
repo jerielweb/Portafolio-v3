@@ -120,7 +120,6 @@ server/!.yarn/sdks
 server/!.yarn/versions
 server/.pnp.*
 server/yarn-error.log
-
 ############################
 # Tests
 ############################
