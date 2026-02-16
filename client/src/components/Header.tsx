@@ -1,8 +1,7 @@
 import NavLink from "next/link";
 import { getHeaderData } from "@/libs/header.api";
-import type { HeaderData } from "@/types/types.header";
 
-export default async function Header({ className }:HeaderData) {
+export default async function Header({ className }: { className?: string }) {
     const headerData = await getHeaderData()
     if(!headerData) return null;
     return(
