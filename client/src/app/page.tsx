@@ -3,6 +3,7 @@ import { GitHub, Linkedin } from "@/components/icons";
 import Skils from "@/components/skilsList";
 import EducationsList from "@/components/educationsList";
 import ProjectsPage from "@/app/projects/page";
+import Contact from "@/components/contact";
 
 export default async function Home() {
   const heroData = await getHeroSections();
@@ -19,7 +20,7 @@ export default async function Home() {
     : "/placeholder.png";
 
   return (
-    <main className="flex flex-col items-center justify-center gap-20">
+    <>
       <section className="flex flex-col size-full pt-20 h-screen justify-center items-center gap-15 lg:flex-row text-balance max-h-300">
         <div>
           <img
@@ -66,8 +67,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Sección About */}
-      <section id="about" className="px-5">
+      <section id="about" className="px-5 flex flex-col size-full justify-center items-center gap-10 my-20">
         <div className="flex flex-col size-full justify-center rounded-2xl overflow-hidden border-3 items-center border-purple-400 hover:border-purple-100 transition duration-200 text-purple-50 max-w-2xl p-5 gap-5">
           <h2 className="text-center font-extrabold sm:text-5xl text-4xl">
             {About?.[0]?.T_About}
@@ -104,6 +104,7 @@ export default async function Home() {
       <ProjectsPage Title={true} ShowBtnPage={true} limit={3} />
       <Skils />
       <EducationsList />
-    </main>
+      <Contact />
+    </>
   );
 }

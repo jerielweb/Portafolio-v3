@@ -22,6 +22,14 @@
         },
         "PageName": {
             "type": "string"
+        },
+        "LicenceFile": {
+            "type": "media",
+            "private": true,
+            "multiple": false,
+            "allowedTypes": [
+                "files"
+            ]
         }
     }
 }

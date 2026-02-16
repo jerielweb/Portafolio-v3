@@ -1,0 +1,27 @@
+{
+    "kind": "collectionType",
+    "collectionName": "contact_messajes",
+    "info": {
+        "singularName": "contact-messaje",
+        "pluralName": "contact-messajes",
+        "displayName": "contact-messaje"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "Nombre": {
+            "type": "string"
+        },
+        "Company": {
+            "type": "string"
+        },
+        "Email": {
+            "type": "email"
+        },
+        "Message": {
+            "type": "text"
+        }
+    }
+}

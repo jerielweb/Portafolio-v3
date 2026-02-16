@@ -12,14 +12,15 @@ export default async function ProjectsPage({ limit, ShowBtnPage = false, Title =
 
   return (
     <>
-      <section className="flex min-h-162.5 text-purple-100 flex-col gap-2 justify-center w-full items-center">
+      <section
+      className={Title === true ? "flex min-h-162.5 text-purple-100 flex-col gap-2 justify-center w-full items-center"
+      : "flex min-h-162.5 text-purple-100 flex-col gap-2 justify-center w-full items-center mt-25"}>
         {Title === true ? (
           <h1 className="text-4xl font-bold text-center">Proyectos Destacados</h1>
         ) : (
           <h1 className="text-4xl font-bold text-center"> Todos Mis Proyectos</h1>
         )}
         {displayedProjects.map((project, p) => {
-          // CORRECCIÓN: Validación de URL para producción
           const image = project.shot?.url?.startsWith("http")
             ? project.shot.url
             : `${STRAPI_URL}${project.shot?.url}`;

@@ -20,7 +20,7 @@ export default async function EducationsList() {
             <div>
               <img
                 src={education.certificate.url.startsWith('http')
-                  ? education.certificate.url 
+                  ? education.certificate.url
                   : `${STRAPI_URL}${education.certificate.url}`}
                 alt={education.title}
                 className="aspect-auto w-90 h-auto pointer-events-none"

@@ -14,9 +14,6 @@
     "HomeLink": {
       "type": "string"
     },
-    "Download": {
-      "type": "string"
-    },
     "CollectionPage": {
       "type": "string"
     },
@@ -34,6 +31,16 @@
     },
     "ProjectPageName": {
       "type": "string"
+    },
+    "Download": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
