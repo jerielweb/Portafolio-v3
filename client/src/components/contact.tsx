@@ -10,9 +10,7 @@ export default function Contact() {
   return (
     <section className="flex flex-col items-center justify-center gap-10 py-16">
       <div>
-        <h1 className="text-center font-extrabold sm:text-5xl text-4xl">
-          CONTACTO
-        </h1>
+        <h1 className="text-center font-extrabold sm:text-5xl text-4xl">CONTACTO</h1>
       </div>
       <div className="flex min-h-140.5 max-w-[320px] border-3 items-center justify-center border-purple-100 rounded-2xl text-purple-50 p-7 flex-col mx-8">
         <form
