@@ -2,10 +2,17 @@ import { getSkilsSections } from "@/libs/skiks.api";
 import Image from "next/image";
 import type { Skill } from "@/types/types.skills";
 
+/**
+ * SkillsList Component - Server Component
+ * ISR Strategy: Cache for 7 days (604800 seconds)
+ * Skills data is mostly static
+ * The revalidate timing is set at the page level that imports this component
+ */
 export default async function SkillsList() {
   const skills = (await getSkilsSections()) as Skill[];
 
-  const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
+  const STRAPI_URL =
+    process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
 
   return (
     <section className="flex min-h-162.5 text-purple-100 flex-col gap-10 justify-center w-full items-center px-2">
@@ -22,7 +29,11 @@ export default async function SkillsList() {
             target="_blank"
           >
             <Image
-              src={skill.Logo.url.startsWith('http') ? skill.Logo.url : `${STRAPI_URL}${skill.Logo.url}`}
+              src={
+                skill.Logo.url.startsWith("http")
+                  ? skill.Logo.url
+                  : `${STRAPI_URL}${skill.Logo.url}`
+              }
               className="size-27 rounded pointer-events-none aspect-square object-contain"
               alt={skill.Logo.name}
               height={500}

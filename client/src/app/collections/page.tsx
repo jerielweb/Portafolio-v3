@@ -2,9 +2,12 @@ import { getCollectionsData, STRAPI_URL } from "@/libs/collections.api";
 import { Collection } from "@/types/types.collections";
 import { LinkTo } from "@/components/icons";
 
+// ISR: Revalidar cada 24 horas (86400 segundos)
+// Ruta: /collections
+export const revalidate = 86400;
+
 export default async function CollectionsPage() {
   const collectionsData = await getCollectionsData();
-  console.log(collectionsData);
   if (!collectionsData) return null;
   return (
     <section className="flex min-h-162.5 text-purple-100 flex-col gap-12 w-full items-center mt-25">

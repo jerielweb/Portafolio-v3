@@ -2,23 +2,41 @@ import { fetchProjectData } from "@/libs/projects.api";
 import type { Project } from "@/types/types.project";
 import { TECHNOLOGIES } from "@/consts/technologies";
 
-export default async function ProjectsPage({ limit, ShowBtnPage = false, Title = false }: { limit?: number; ShowBtnPage?: boolean; Title?: boolean } = {}) {
+// ISR: Revalidar cada 24 horas (86400 segundos)
+// Ruta: /projects
+export const revalidate = 86400;
+
+export default async function ProjectsPage({
+  limit,
+  ShowBtnPage = false,
+  Title = false,
+}: { limit?: number; ShowBtnPage?: boolean; Title?: boolean } = {}) {
   const response = await fetchProjectData("/api/projects/?populate=*");
   const projects: Project[] = response?.data || [];
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
   // URL de Strapi desde variable de entorno
-  const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
+  const STRAPI_URL =
+    process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
 
   return (
     <>
       <section
-      className={Title === true ? "flex min-h-162.5 text-purple-100 flex-col gap-2 justify-center w-full items-center"
-      : "flex min-h-162.5 text-purple-100 flex-col gap-2 justify-center w-full items-center mt-25"}>
+        className={
+          Title === true
+            ? "flex min-h-162.5 text-purple-100 flex-col gap-2 justify-center w-full items-center"
+            : "flex min-h-162.5 text-purple-100 flex-col gap-2 justify-center w-full items-center mt-25"
+        }
+      >
         {Title === true ? (
-          <h1 className="text-4xl font-bold text-center">Proyectos Destacados</h1>
+          <h1 className="text-4xl font-bold text-center">
+            Proyectos Destacados
+          </h1>
         ) : (
-          <h1 className="text-4xl font-bold text-center"> Todos Mis Proyectos</h1>
+          <h1 className="text-4xl font-bold text-center">
+            {" "}
+            Todos Mis Proyectos
+          </h1>
         )}
         {displayedProjects.map((project, p) => {
           const image = project.shot?.url?.startsWith("http")
@@ -120,7 +138,10 @@ export default async function ProjectsPage({ limit, ShowBtnPage = false, Title =
           );
         })}
         {ShowBtnPage && (
-          <a href="/projects" className="text-[20px] size-fit bg-purple-700 py-2 px-5 rounded-[10px] transition active:scale-93 font-semibold cursor-pointer mx-3 items-center justify-center flex mt-4 text-center max-w-65 sm:max-w-none">
+          <a
+            href="/projects"
+            className="text-[20px] size-fit bg-purple-700 py-2 px-5 rounded-[10px] transition active:scale-93 font-semibold cursor-pointer mx-3 items-center justify-center flex mt-4 text-center max-w-65 sm:max-w-none"
+          >
             Ver todos los Proyectos
           </a>
         )}

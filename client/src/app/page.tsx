@@ -5,18 +5,30 @@ import EducationsList from "@/components/educationsList";
 import ProjectsPage from "@/app/projects/page";
 import Contact from "@/components/contact";
 
+// ISR: Revalidar cada 12 horas (43200 segundos)
+export const revalidate = 43200;
+
 export default async function Home() {
   const heroData = await getHeroSections();
-  const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
+  const STRAPI_URL =
+    process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
 
   if (!heroData) return null;
 
-  const { header, title, sub_title, curriculum, is_working, About, Image: heroImage } = heroData;
+  const {
+    header,
+    title,
+    sub_title,
+    curriculum,
+    is_working,
+    About,
+    Image: heroImage,
+  } = heroData;
 
   const profileImageUrl = heroImage?.[0]?.profile?.url
-    ? (heroImage[0].profile.url.startsWith("http")
-        ? heroImage[0].profile.url
-        : `${STRAPI_URL}${heroImage[0].profile.url}`)
+    ? heroImage[0].profile.url.startsWith("http")
+      ? heroImage[0].profile.url
+      : `${STRAPI_URL}${heroImage[0].profile.url}`
     : "/placeholder.png";
 
   return (
@@ -33,10 +45,16 @@ export default async function Home() {
         </div>
         <div>
           <div className="flex flex-col w-full items-center text-center lg:items-start">
-            <span className={`text-purple-50 text-center font-medium border border-purple-300 size-fit px-2 rounded-full bg-linear-to-bl sm:m-0 mb-2 ${
-              is_working ? "from-violet-400 via-violet-600 to-indigo-900" : "from-gray-400 via-gray-600 to-gray-900"
-            }`}>
-              {is_working ? "ACTUALMENTE TRABAJANDO" : "EN BUSCA DE OPORTUNIDADES"}
+            <span
+              className={`text-purple-50 text-center font-medium border border-purple-300 size-fit px-2 rounded-full bg-linear-to-bl sm:m-0 mb-2 ${
+                is_working
+                  ? "from-violet-400 via-violet-600 to-indigo-900"
+                  : "from-gray-400 via-gray-600 to-gray-900"
+              }`}
+            >
+              {is_working
+                ? "ACTUALMENTE TRABAJANDO"
+                : "EN BUSCA DE OPORTUNIDADES"}
             </span>
             <div>
               <span className="lg:text-3xl text-2xl text-purple-50 font-bold">
@@ -67,7 +85,10 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="about" className="px-5 flex flex-col size-full justify-center items-center gap-10 my-20">
+      <section
+        id="about"
+        className="px-5 flex flex-col size-full justify-center items-center gap-10 my-20"
+      >
         <div className="flex flex-col size-full justify-center rounded-2xl overflow-hidden border-3 items-center border-purple-400 hover:border-purple-100 transition duration-200 text-purple-50 max-w-2xl p-5 gap-5">
           <h2 className="text-center font-extrabold sm:text-5xl text-4xl">
             {About?.[0]?.T_About}

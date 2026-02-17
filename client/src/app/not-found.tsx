@@ -1,14 +1,21 @@
 import Link from "next/link";
+import Image from "next/image";
+import ErrorImg from "@/assets/error404.png";
 import { unstable_noStore } from "next/cache";
 
 export default function NotFound() {
   unstable_noStore();
 
   return (
-    <div style={{ textAlign: "center", padding: "50px" }}>
-      <h2>Página no encontrada</h2>
-      <p>No pudimos encontrar el recurso solicitado.</p>
-      <Link href="/">Volver al Inicio</Link>
+  <div className="min-h-screen max-w-300 w-full flex flex-col items-center justify-center px-4 text-center gap-5">
+        <div className="flex flex-col items-center mb-4 text-[150px] md:text-[250px] font-bold text-purple-700 size-full justify-center relative">
+            <Image src={ErrorImg} alt="Imagen de error 404" className="w-80 md:w-100 h-auto rounded-full mask-b-from-20% pointer-events-none" />
+                <h1 className="absolute -bottom-20 md:-bottom-27 z-1">404</h1>
+        </div>
+        <div className="flex flex-col gap-6 justify-center items-center z-10">
+            <p className="text-xl mx-5">Lo sentimos, la página que buscas no se pudo encontrar.</p>
+            <Link href="/" className="text-[17px] size-fit bg-purple-700 py-2 px-5 rounded-[10px] transition active:scale-93">Volver al inicio</Link>
+        </div>
     </div>
   );
 }

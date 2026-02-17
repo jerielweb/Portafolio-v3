@@ -42,7 +42,7 @@ export function useContactForm(): UseContactFormReturn {
             if (response.ok) {
                 setStatus("Se ha enviado con éxito");
                 setShowModal(true);
-                form.reset(); 
+                form.reset();
             } else {
                 const msg = body?.error?.message || body?.message || JSON.stringify(body) || `Error ${response.status}`;
                 setError(msg);

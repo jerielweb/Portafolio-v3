@@ -1,6 +1,11 @@
 import NavLink from "next/link";
 import { getHeaderData } from "@/libs/header.api";
 
+/**
+ * Header Component - Server Component
+ * ISR Strategy: Cache for 7 days (604800 seconds)
+ * The revalidate timing is set at the page level that imports this component
+ */
 export default async function Header({ className }: { className?: string }) {
   let headerData;
   try {

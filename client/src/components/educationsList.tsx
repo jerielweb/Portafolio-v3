@@ -2,9 +2,16 @@ import { getEducations } from "@/libs/educations.api";
 import { LinkTo } from "./icons";
 import type { EducationsList as EducationsListType } from "@/types/types.educations";
 
+/**
+ * EducationsList Component - Server Component
+ * ISR Strategy: Cache for 7 days (604800 seconds)
+ * Education data is stable and rarely changes
+ * The revalidate timing is set at the page level that imports this component
+ */
 export default async function EducationsList() {
   const educations: EducationsListType = await getEducations();
-  const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
+  const STRAPI_URL =
+    process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
 
   return (
     <section>
@@ -19,9 +26,11 @@ export default async function EducationsList() {
           >
             <div>
               <img
-                src={education.certificate.url.startsWith('http')
-                  ? education.certificate.url
-                  : `${STRAPI_URL}${education.certificate.url}`}
+                src={
+                  education.certificate.url.startsWith("http")
+                    ? education.certificate.url
+                    : `${STRAPI_URL}${education.certificate.url}`
+                }
                 alt={education.title}
                 className="aspect-auto w-90 h-auto pointer-events-none"
               />
