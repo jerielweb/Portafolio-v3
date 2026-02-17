@@ -1,6 +1,7 @@
 import { getCollectionsData, STRAPI_URL } from "@/libs/collections.api";
 import { Collection } from "@/types/types.collections";
 import { LinkTo } from "@/components/icons";
+import Image from "next/image";
 
 export default async function CollectionsPage() {
   const collectionsData = await getCollectionsData();
@@ -15,17 +16,19 @@ export default async function CollectionsPage() {
             key={collections.id}
             className="flex flex-col gap-2 justify-center items-center max-w-sm border-2 border-purple-400 hover:border-purple-100 active:border-purple-100 transition duration-200 ease-out p-3 max-h-90 rounded-lg"
           >
-            <div>
-              <img
-                src={`${STRAPI_URL}${collections.shot.url}`}
-                alt={collections.site_name}
-                width={1920}
-                height={1080}
-                className="
-                    rounded
-                    transition object-cover
-                    "
-              />
+            <div className="relative w-full h-44 mb-2 overflow-hidden rounded">
+              {collections.shot?.url ? (
+                <img
+                  src={`${STRAPI_URL}${collections.shot?.formats?.small?.url || collections.shot.url}`}
+                  alt={collections.site_name}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition"
+                />
+              ) : (
+                <div className="bg-zinc-800 w-full h-full flex items-center justify-center text-sm text-purple-200">
+                  Sin imagen
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col w-full ">
@@ -43,9 +46,7 @@ export default async function CollectionsPage() {
                 className="text-[17px] text-center bg-purple-700 py-2 w-full px-5 rounded-[10px] transition active:scale-93 flex flex-row justify-center items-center gap-3"
               >
                 <p>Visitar</p>
-                <LinkTo
-                className="size-5"
-                />
+                <LinkTo className="size-5" />
               </a>
             </div>
           </article>

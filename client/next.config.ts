@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         hostname: '**',
         pathname: '/uploads/**',
       },
+      {
+        protocol: 'http',
+        hostname: '**',
+        pathname: '/uploads/**',
+      },
     ],
   },
   typescript: {
