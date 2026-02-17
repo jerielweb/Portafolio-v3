@@ -2,22 +2,30 @@ import NavLink from "next/link";
 import { getHeaderData } from "@/libs/header.api";
 
 export default async function Header({ className }: { className?: string }) {
-  const headerData = await getHeaderData();
+  let headerData;
+  try {
+    headerData = await getHeaderData();
+  } catch (error) {
+    console.error("Error loading header:", error);
+    return null;
+  }
+
   if (!headerData) return null;
+
   return (
     <header className={className}>
       <div className="flex bg-purple-600/30 justify-between w-300 px-2 h-11 items-center rounded-full backdrop-blur-sm text-purple-50 font-bold">
         <div>
           <NavLink
             className="bg-purple-600 px-3 py-1 rounded-full cursor-pointer hidden sm:flex font-concert"
-            href={headerData.HomeLink}
+            href={headerData?.HomeLink || "/"}
           >
             <span>JERIEL</span>
             <span>BECKFORD</span>
           </NavLink>
           <NavLink
             className="bg-purple-600 px-3 py-1 rounded-full cursor-pointer flex sm:hidden font-concert"
-            href={headerData.HomeLink}
+            href={headerData?.HomeLink || "/"}
           >
             <span>J</span>
             <span>B</span>
@@ -25,14 +33,16 @@ export default async function Header({ className }: { className?: string }) {
         </div>
         <nav className="flex gap-2 items-center">
           <div>
-            <a
-              href={headerData.Download.url}
-              className="flex rounded-full py-1 px-2 bg-purple-500 hover:bg-purple-600 active:bg-purple-600"
-              title="Jeriel Beckford CV"
-              download="Jeriel Beckford CV.pdf"
-            >
-              DESCARGAR CV
-            </a>
+            {headerData?.Download?.url && (
+              <a
+                href={headerData.Download.url}
+                className="flex rounded-full py-1 px-2 bg-purple-500 hover:bg-purple-600 active:bg-purple-600"
+                title="Jeriel Beckford CV"
+                download="Jeriel Beckford CV.pdf"
+              >
+                DESCARGAR CV
+              </a>
+            )}
           </div>
 
           <aside
@@ -45,18 +55,22 @@ export default async function Header({ className }: { className?: string }) {
             >
               INICIO
             </NavLink>
-            <NavLink
-              href={headerData.CollectionPage}
-              className="px-1.5 rounded-full active:bg-purple-500 hover:bg-purple-500"
-            >
-              COLECCIONES
-            </NavLink>
-            <NavLink
-              href={headerData.ProjectPage}
-              className="px-1.5 rounded-full active:bg-purple-500 hover:bg-purple-500"
-            >
-              PROYECTOS
-            </NavLink>
+            {headerData?.CollectionPage && (
+              <NavLink
+                href={headerData.CollectionPage}
+                className="px-1.5 rounded-full active:bg-purple-500 hover:bg-purple-500"
+              >
+                COLECCIONES
+              </NavLink>
+            )}
+            {headerData?.ProjectPage && (
+              <NavLink
+                href={headerData.ProjectPage}
+                className="px-1.5 rounded-full active:bg-purple-500 hover:bg-purple-500"
+              >
+                PROYECTOS
+              </NavLink>
+            )}
           </aside>
           <div
             id="hamburger-button"

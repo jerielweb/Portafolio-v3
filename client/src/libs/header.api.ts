@@ -4,7 +4,16 @@ export const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhos
 
 export async function fetchHeaderData(url: string): Promise<HeaderApiResponse | null> {
     try {
-        const response = await fetch(`${STRAPI_URL}${url}`);
+        // Add timeout to prevent hanging during build
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+        
+        const response = await fetch(`${STRAPI_URL}${url}`, {
+            signal: controller.signal,
+        });
+        
+        clearTimeout(timeoutId);
+        
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -17,6 +26,11 @@ export async function fetchHeaderData(url: string): Promise<HeaderApiResponse | 
 }
 
 export async function getHeaderData(): Promise<HeaderData | null> {
-    const response = await fetchHeaderData("/api/header?populate=*");
-    return response?.data || null;
+    try {
+        const response = await fetchHeaderData("/api/header?populate=*");
+        return response?.data || null;
+    } catch (error) {
+        console.error('Error getting header data:', error);
+        return null;
+    }
 }
