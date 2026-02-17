@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Cascadia_Code, Concert_One } from "next/font/google";
+import { Fira_Code, Concert_One } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/footer";
 
 
-const CascadiaCode = Cascadia_Code({
-  variable: "--font-cascadia-code",
+const FiraCode = Fira_Code({
+  variable: "--font-Fira-code",
   subsets: ["latin"],
   style: "normal",
   weight: "400",
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-linear-to-b from-violet-900 to-zinc-900 flex items-center justify-center bg-no-repeat flex-col font-sans scroll-smooth text-purple-50 text-balance bg-fixed gap-32 ${CascadiaCode.variable} antialiased `}
+        className={`bg-linear-to-b from-violet-900 to-zinc-900 flex items-center justify-center bg-no-repeat flex-col font-sans scroll-smooth text-purple-50 text-balance bg-fixed gap-32 ${FiraCode.variable} antialiased `}
       >
         <Header
         className={`flex h-20 items-center w-full justify-center fixed top-0 px-3 z-50 ${ConcertOne.variable} text-purple-50 font-bold`}
