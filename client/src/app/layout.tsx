@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
-import { Fira_Code, Concert_One } from "next/font/google";
+import { Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/footer";
 
-
-const FiraCode = Fira_Code({
-  variable: "--font-Fira-code",
+const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
-  style: "normal",
-  weight: "400",
-});
-
-const ConcertOne = Concert_One({
-  variable: "--font-concert-one",
-  subsets: ["latin"],
-  style: "normal",
-  weight: "400",
+  variable: "--font-mono",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -30,12 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
-        className={`bg-linear-to-b from-violet-900 to-zinc-900 flex items-center justify-center bg-no-repeat flex-col font-sans scroll-smooth text-purple-50 text-balance bg-fixed gap-32 ${FiraCode.variable} antialiased `}
+        className={`bg-linear-to-b from-violet-900 to-zinc-900 flex items-center justify-center bg-no-repeat flex-col scroll-smooth font-mono text-purple-50 text-balance bg-fixed gap-32 antialiased ${sourceCodePro.variable}`}
       >
         <Header
-        className={`flex h-20 items-center w-full justify-center fixed top-0 px-3 z-50 ${ConcertOne.variable} text-purple-50 font-bold`}
+        className={`flex h-20 items-center w-full justify-center fixed top-0 px-3 z-50 text-purple-50 font-bold`}
         />
         <main className="flex flex-col items-center justify-center size-full gap-32">
           {children}
