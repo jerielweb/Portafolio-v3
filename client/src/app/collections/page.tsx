@@ -1,7 +1,6 @@
 import { getCollectionsData, STRAPI_URL } from "@/libs/collections.api";
 import { Collection } from "@/types/types.collections";
 import { LinkTo } from "@/components/icons";
-import Image from "next/image";
 
 export default async function CollectionsPage() {
   const collectionsData = await getCollectionsData();
