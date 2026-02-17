@@ -21,10 +21,10 @@ export function useContactForm(): UseContactFormReturn {
 
         const data: ContactPayload = {
             data: {
-                name: formData.get("name")?.toString() || "",
-                company: formData.get("company")?.toString() || "",
-                email: formData.get("email")?.toString() || "",
-                message: formData.get("message")?.toString() || ""
+                Nombre: formData.get("name")?.toString() || "",
+                Company: formData.get("company")?.toString() || "",
+                Email: formData.get("email")?.toString() || "",
+                Message: formData.get("message")?.toString() || ""
             }
         };
 

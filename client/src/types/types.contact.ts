@@ -1,8 +1,8 @@
 export interface ContactFormFields {
-  name: string;
-  company?: string;
-  email: string;
-  message: string;
+  Nombre: string;
+  Company?: string;
+  Email: string;
+  Message: string;
 }
 
 export interface ContactPayload {
@@ -10,7 +10,7 @@ export interface ContactPayload {
 }
 
 export interface StrapiErrorDetail {
-  message?: string;
+  Message?: string;
   path?: string;
   name?: string;
   [key: string]: any;
@@ -19,8 +19,8 @@ export interface StrapiErrorDetail {
 export interface StrapiErrorResponse {
   error?: {
     status?: number;
-    name?: string;
-    message?: string;
+    Name?: string;
+    Message?: string;
     details?: Record<string, any> | StrapiErrorDetail[];
   };
 }
