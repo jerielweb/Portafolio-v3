@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import ErrorImg from "@/assets/error404.png";
-import { unstable_noStore } from "next/cache";
 
 export default function NotFound() {
-  unstable_noStore();
 
   return (
   <div className="min-h-screen max-w-300 w-full flex flex-col items-center justify-center px-4 text-center gap-5">
