@@ -1,6 +1,7 @@
 @import "tailwindcss";
 * {
   scroll-behavior: smooth;
+  transition: all 0.2s ease-out;
 }
 :root {
   --background: #ffffff;
@@ -18,4 +19,8 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+.active {
+  height: 140px;
 }
