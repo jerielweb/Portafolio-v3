@@ -4,16 +4,7 @@ export const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhos
 
 export async function fetchHeaderData(url: string): Promise<HeaderApiResponse | null> {
     try {
-        // Add timeout to prevent hanging during build
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
-        
-        const response = await fetch(`${STRAPI_URL}${url}`, {
-            signal: controller.signal,
-        });
-        
-        clearTimeout(timeoutId);
-        
+        const response = await fetch(`${STRAPI_URL}${url}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import NavLink from "next/link";
 import type { HeaderData } from "@/types/types.header";
@@ -15,9 +15,13 @@ export default function HeaderClient({
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen((v) => !v);
   const pathname = usePathname();
+  const prevPathname = useRef(pathname);
 
   useEffect(() => {
-    setOpen(false);
+    if (prevPathname.current !== pathname) {
+      setOpen(false);
+      prevPathname.current = pathname;
+    }
   }, [pathname]);
 
   const menuBase =
