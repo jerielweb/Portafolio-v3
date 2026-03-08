@@ -37,8 +37,6 @@ export default async function SkillsList() {
               className="size-27 rounded pointer-events-none aspect-square object-contain"
               alt={skill.Logo.name}
               Rounded={true}
-              height={500}
-              width={500}
               priority={false}
             />
             <p className="text-xl">{skill.Name}</p>

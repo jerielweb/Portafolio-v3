@@ -35,8 +35,6 @@ export default async function CollectionsPage() {
                     alt={collections.site_name}
                     Rounded={true}
                     className="object-cover transition size-full"
-                    width={1920}
-                    height={1080}
                   />
                 ) : (
                   <div className="bg-zinc-800 size-full flex items-center justify-center text-sm text-purple-200">

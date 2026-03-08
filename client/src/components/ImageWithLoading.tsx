@@ -8,6 +8,7 @@ interface LoadingImgProps {
   alt: string;
   className?: string;
   Rounded: boolean;
+  priority?: boolean;
 }
 
 export default function ImageWithLoading({
