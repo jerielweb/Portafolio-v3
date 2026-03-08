@@ -37,10 +37,9 @@ export default async function Home() {
         <div>
           <Image
             src={profileImageUrl}
+            Rounded={false}
             className="sm:size-80 size-60 rounded-full object-cover"
             alt="Foto De Perfil"
-            width={500}
-            height={500}
           />
         </div>
         <div>
