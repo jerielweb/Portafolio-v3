@@ -4,7 +4,7 @@ import Skils from "@/components/skilsList";
 import EducationsList from "@/components/educationsList";
 import ProjectsPage from "@/app/projects/page";
 import Contact from "@/components/contact";
-
+import Image from "@/components/ImageWithLoading";
 // ISR: Revalidar cada 12 horas (43200 segundos)
 export const revalidate = 43200;
 
@@ -35,12 +35,12 @@ export default async function Home() {
     <>
       <section className="flex flex-col size-full pt-20 h-screen justify-center items-center gap-15 lg:flex-row text-balance max-h-300">
         <div>
-          <img
+          <Image
             src={profileImageUrl}
             className="sm:size-80 size-60 rounded-full object-cover"
             alt="Foto De Perfil"
-            width={1080}
-            height={1080}
+            width={500}
+            height={500}
           />
         </div>
         <div>

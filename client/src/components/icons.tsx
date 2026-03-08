@@ -295,81 +295,209 @@ export const LinkTo = ({ className }: { className?: string }) => {
   );
 };
 
-export const MailSusses = ({ className, fill }: { className?: string, fill?: string }) => {
+export const MailSusses = ({
+  className,
+  fill,
+}: {
+  className?: string;
+  fill?: string;
+}) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" className={className}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      className={className}
+    >
       <defs>
         <mask id="SVGwmTVw6iw">
           <path fill="#fff" fillOpacity={0} d="M12 11l-8 -5h16l-8 5Z">
-            <animate fill="freeze" attributeName="fill-opacity" begin="0.63s" dur="0.105s" to={0.3}></animate>
+            <animate
+              fill="freeze"
+              attributeName="fill-opacity"
+              begin="0.63s"
+              dur="0.105s"
+              to={0.3}
+            ></animate>
           </path>
-          <g fill="none" stroke={fill} strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}>
-            <path strokeDasharray={66} d="M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z">
-              <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.42s" values="66;0"></animate>
+          <g
+            fill="none"
+            stroke={fill}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+          >
+            <path
+              strokeDasharray={66}
+              d="M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.42s"
+                values="66;0"
+              ></animate>
             </path>
-            <path strokeDasharray={24} strokeDashoffset={24} d="M3 6.5l9 5.5l9 -5.5">
-              <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.42s" dur="0.21s" to={0}></animate>
+            <path
+              strokeDasharray={24}
+              strokeDashoffset={24}
+              d="M3 6.5l9 5.5l9 -5.5"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                begin="0.42s"
+                dur="0.21s"
+                to={0}
+              ></animate>
             </path>
           </g>
-          <path d="M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z" opacity={0}>
-            <set fill="freeze" attributeName="opacity" begin="0.805s" to={1}></set>
+          <path
+            d="M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z"
+            opacity={0}
+          >
+            <set
+              fill="freeze"
+              attributeName="opacity"
+              begin="0.805s"
+              to={1}
+            ></set>
           </path>
         </mask>
       </defs>
       <path fill={fill} d="M0 0h24v24H0z" mask="url(#SVGwmTVw6iw)"></path>
-      <path fill="none" stroke={fill} strokeDasharray={10} strokeDashoffset={10} strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 19l1.75 1.75l3.75 -3.75">
-        <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.805s" dur="0.14s" to={0}></animate>
+      <path
+        fill="none"
+        stroke={fill}
+        strokeDasharray={10}
+        strokeDashoffset={10}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M16 19l1.75 1.75l3.75 -3.75"
+      >
+        <animate
+          fill="freeze"
+          attributeName="stroke-dashoffset"
+          begin="0.805s"
+          dur="0.14s"
+          to={0}
+        ></animate>
       </path>
     </svg>
-  )
-}
+  );
+};
 
-export const MailError = ({ className, fill }: { className?: string, fill?: string }) => {
-  return(
-    <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" className={className}>
+export const MailError = ({
+  className,
+  fill,
+}: {
+  className?: string;
+  fill?: string;
+}) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      className={className}
+    >
       <defs>
         <mask id="SVGwmTVw6iw">
           <path fill={fill} fillOpacity={0} d="M12 11l-8 -5h16l-8 5Z">
-            <animate fill="freeze" attributeName="fill-opacity" begin="0.45s" dur="0.075s" to={0.3}></animate>
+            <animate
+              fill="freeze"
+              attributeName="fill-opacity"
+              begin="0.45s"
+              dur="0.075s"
+              to={0.3}
+            ></animate>
           </path>
-          <g fill="none" stroke={fill} strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}>
-            <path strokeDasharray={66} d="M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z">
-              <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="66;0"></animate>
+          <g
+            fill="none"
+            stroke={fill}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+          >
+            <path
+              strokeDasharray={66}
+              d="M4 5h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-12c0 -0.55 0.45 -1 1 -1Z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                dur="0.3s"
+                values="66;0"
+              ></animate>
             </path>
-            <path strokeDasharray={24} strokeDashoffset={24} d="M3 6.5l9 5.5l9 -5.5">
-              <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.3s" dur="0.15s" to={0}></animate>
+            <path
+              strokeDasharray={24}
+              strokeDashoffset={24}
+              d="M3 6.5l9 5.5l9 -5.5"
+            >
+              <animate
+                fill="freeze"
+                attributeName="stroke-dashoffset"
+                begin="0.3s"
+                dur="0.15s"
+                to={0}
+              ></animate>
             </path>
           </g>
-          <path d="M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z" opacity={0}>
-            <set fill="freeze" attributeName="opacity" begin="0.575s" to={1}></set>
+          <path
+            d="M19 13c3.31 0 6 2.69 6 6c0 3.31 -2.69 6 -6 6c-3.31 0 -6 -2.69 -6 -6c0 -3.31 2.69 -6 6 -6Z"
+            opacity={0}
+          >
+            <set
+              fill="freeze"
+              attributeName="opacity"
+              begin="0.575s"
+              to={1}
+            ></set>
           </path>
         </mask>
       </defs>
       <path fill={fill} d="M0 0h24v24H0z" mask="url(#SVGwmTVw6iw)"></path>
-      <g fill="none" stroke={fill} strokeDasharray={8} strokeDashoffset={8} strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}>
+      <g
+        fill="none"
+        stroke={fill}
+        strokeDasharray={8}
+        strokeDashoffset={8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+      >
         <path d="M17 17l4 4">
-          <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.575s" dur="0.1s" to={0}></animate>
+          <animate
+            fill="freeze"
+            attributeName="stroke-dashoffset"
+            begin="0.575s"
+            dur="0.1s"
+            to={0}
+          ></animate>
         </path>
         <path d="M21 17l-4 4">
-          <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.675s" dur="0.1s" to={0}></animate>
+          <animate
+            fill="freeze"
+            attributeName="stroke-dashoffset"
+            begin="0.675s"
+            dur="0.1s"
+            to={0}
+          ></animate>
         </path>
       </g>
     </svg>
-  )
-}
+  );
+};
 
 export const Loading = ({ className, fill }: { className?: string, fill?: string }) => {
   return(
-    <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"
-    className={className}
-    >
-      <g stroke={fill} strokeWidth={1}>
-        <circle cx={12} cy={12} r={9.5} fill="none" strokeLinecap="round" strokeWidth={3}>
-          <animate attributeName="stroke-dasharray" calcMode="spline" dur="1.5s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0 150;42 150;42 150;42 150"></animate>
-          <animate attributeName="stroke-dashoffset" calcMode="spline" dur="1.5s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0;-16;-59;-59"></animate>
-        </circle>
-        <animateTransform attributeName="transform" dur="2s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"></animateTransform>
-      </g>
-    </svg>
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+	<path fill={fill} d="M10.72,19.9a8,8,0,0,1-6.5-9.79A7.77,7.77,0,0,1,10.4,4.16a8,8,0,0,1,9.49,6.52A1.54,1.54,0,0,0,21.38,12h.13a1.37,1.37,0,0,0,1.38-1.54,11,11,0,1,0-12.7,12.39A1.54,1.54,0,0,0,12,21.34h0A1.47,1.47,0,0,0,10.72,19.9Z" strokeWidth="0.5" stroke={fill}>
+	</path>
+</svg>
   )
 }

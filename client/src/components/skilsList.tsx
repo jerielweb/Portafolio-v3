@@ -1,5 +1,5 @@
 import { getSkilsSections } from "@/libs/skiks.api";
-import Image from "next/image";
+import Image from "./ImageWithLoading";
 import type { Skill } from "@/types/types.skills";
 
 /**
@@ -36,6 +36,7 @@ export default async function SkillsList() {
               }
               className="size-27 rounded pointer-events-none aspect-square object-contain"
               alt={skill.Logo.name}
+              Rounded={true}
               height={500}
               width={500}
               priority={false}

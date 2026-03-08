@@ -4,7 +4,10 @@ const nextConfig: NextConfig = {
   // ISR Configuration for Incremental Static Regeneration
   // Pages with revalidate will be statically generated at build time
   // and revalidated in the background at specified intervals
-  
+
+  // Allow cross-origin requests from local network IPs during development
+  allowedDevOrigins: ['http://192.168.100.207'],
+
   images: {
     remotePatterns: [
       {

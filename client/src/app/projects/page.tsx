@@ -1,9 +1,8 @@
 import { fetchProjectData } from "@/libs/projects.api";
 import type { Project } from "@/types/types.project";
 import { TECHNOLOGIES } from "@/consts/technologies";
+import ImageWithLoading from "@/components/ImageWithLoading";
 
-// ISR: Revalidar cada 24 horas (86400 segundos)
-// Ruta: /projects
 export const revalidate = 86400;
 
 export default async function ProjectsPage({
@@ -15,7 +14,7 @@ export default async function ProjectsPage({
   const projects: Project[] = response?.data || [];
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
-  // URL de Strapi desde variable de entorno
+
   const STRAPI_URL =
     process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
 
@@ -112,10 +111,10 @@ export default async function ProjectsPage({
               </div>
 
               <div className="flex lg:p-0 mask-clip-border relative">
-                <img
+                <ImageWithLoading
+                  Rounded={true}
                   src={image}
                   className="max-h-96 h-auto object-contain aspect-video rounded-xl mask-clip-border"
-                  loading="lazy"
                   alt={project.title}
                 />
                 <span>

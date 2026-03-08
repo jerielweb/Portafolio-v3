@@ -1,5 +1,6 @@
 import { getEducations } from "@/libs/educations.api";
 import { LinkTo } from "./icons";
+import Image from "./ImageWithLoading";
 import type { EducationsList as EducationsListType } from "@/types/types.educations";
 
 /**
@@ -24,15 +25,16 @@ export default async function EducationsList() {
             className="flex flex-col gap-2 justify-center items-center max-w-sm border-2 border-purple-400 hover:border-purple-100 active:border-purple-100 transition duration-200 ease-out p-3 rounded-lg text-[15px] mx-5"
             key={education.id}
           >
-            <div>
-              <img
+            <div className="min-h-70 flex size-full justify-center items-center">
+              <Image
+                Rounded={true}
                 src={
                   education.certificate.url.startsWith("http")
                     ? education.certificate.url
                     : `${STRAPI_URL}${education.certificate.url}`
                 }
                 alt={education.title}
-                className="aspect-auto w-90 h-auto pointer-events-none"
+                className="aspect-auto w-90 h-auto pointer-events-none rounded-lg"
               />
             </div>
             <div>
