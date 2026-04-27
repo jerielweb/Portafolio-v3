@@ -13,7 +13,12 @@ export default async function Home() {
   const STRAPI_URL =
     process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
 
-  if (!heroData) return null;
+  if (!heroData) return (
+    <>
+      <div className="flex items-center justify-center h-screen"></div>
+      <p className="text-gray-500 text-xl">Cargando...</p>
+    </>
+  );
 
   const {
     header,

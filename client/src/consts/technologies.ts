@@ -1,4 +1,4 @@
-import { React, TypeScript, CSS, Vite, JavaScript, Next, Tailwind, HTML  } from "@/components/icons";
+import { React, TypeScript, CSS, Vite, JavaScript, Next, Tailwind, HTML, Astro  } from "@/components/icons";
 
 const TECHNOLOGIES: Record<string, any> = {
   React: React,
@@ -9,6 +9,7 @@ const TECHNOLOGIES: Record<string, any> = {
   Next: Next,
   Tailwind: Tailwind,
   HTML: HTML,
+  Astro: Astro,
 };
 
 export { TECHNOLOGIES };
