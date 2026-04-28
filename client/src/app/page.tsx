@@ -72,7 +72,7 @@ export default async function Home() {
           </div>
           <div className="flex text-purple-50 gap-3 mt-2 text-center font-bold items-center justify-center lg:justify-normal lg:text-start">
             <a
-              className="px-3 py-1 lg:px-6 lg:py-3 bg-violet-400 rounded-full flex items-center gap-2 transition hover:scale-105"
+              className="px-3 py-1 lg:px-6 lg:py-3 bg-violet-400 rounded-xl  flex items-center gap-2 transition hover:scale-105"
               href={curriculum}
               target="_blank"
               rel="noopener noreferrer"
@@ -80,7 +80,7 @@ export default async function Home() {
               VER CV
             </a>
             <a
-              className="px-3 py-1 lg:px-6 lg:py-3 bg-violet-600 rounded-full flex items-center gap-2 transition hover:scale-105"
+              className="px-3 py-1 lg:px-6 lg:py-3 bg-violet-600 rounded-xl  flex items-center gap-2 transition hover:scale-105"
               href="#about"
             >
               SABER MÁS
@@ -91,7 +91,7 @@ export default async function Home() {
 
       <section
         id="about"
-        className="px-5 flex flex-col size-full justify-center items-center gap-10 my-20"
+        className="px-5 flex flex-col size-full justify-center items-center gap-10 my-20 pt-25"
       >
         <div className="flex flex-col size-full justify-center rounded-2xl overflow-hidden border-3 items-center border-purple-400 hover:border-purple-100 transition duration-200 text-purple-50 max-w-2xl p-5 gap-5">
           <h2 className="text-center font-extrabold sm:text-5xl text-4xl">
@@ -106,7 +106,7 @@ export default async function Home() {
                 href={About[0].linkdedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-purple-600 text-purple-100 font-bold rounded-3xl p-3 hover:shadow-purple-100 transition duration-200"
+                className="flex items-center justify-center gap-2 bg-purple-600 text-purple-100 font-bold rounded-xl p-3 hover:shadow-purple-100 transition duration-200"
               >
                 <Linkedin className="size-5" />
                 LinkedIn
@@ -117,7 +117,7 @@ export default async function Home() {
                 href={About[0].git_hub}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-purple-600 text-purple-100 font-bold rounded-3xl p-3 hover:shadow-purple-100 transition duration-200"
+                className="flex items-center justify-center gap-2 bg-purple-600 text-purple-100 font-bold rounded-xl p-3 hover:shadow-purple-100 transition duration-200"
               >
                 <GitHub className="size-5" />
                 GitHub
