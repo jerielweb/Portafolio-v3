@@ -10,10 +10,9 @@ export default async function ProjectsPage({
   ShowBtnPage = false,
   Title = false,
 }: { limit?: number; ShowBtnPage?: boolean; Title?: boolean } = {}) {
-  const response = await fetchProjectData("/api/projects/?populate=*");
+  const response = await fetchProjectData("/api/projects/?populate=*&sort=createdAt:desc");
   const projects: Project[] = response?.data || [];
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
-
 
   const STRAPI_URL =
     process.env.NEXT_PUBLIC_STRAPI_URL || "http://127.0.0.1:1337";
@@ -37,15 +36,15 @@ export default async function ProjectsPage({
             Todos Mis Proyectos
           </h1>
         )}
-        {displayedProjects.map((project, p) => {
+        {displayedProjects.map((project) => {
           const image = project.shot?.url?.startsWith("http")
             ? project.shot.url
             : `${STRAPI_URL}${project.shot?.url}`;
 
           return (
             <article
-              key={p}
-              className="flex gap-2 rounded-2xl m-8 overflow-hidden lg:pr-0 lg:pl-0 flex-col-reverse xl:flex-row xl:w-6xl lg:max-w-6x1 xl:h-97 border-3 border-purple-400 justify-between items-center hover:border-purple-100 active:border-purple-100 transition duration-200 ease-out"
+              key={project.id}
+              className="flex gap-2 rounded-2xl m-8 overflow-hidden lg:pr-0 lg:pl-0 flex-col-reverse xl:flex-row xl:w-6xl  xl:h-97 border-3 border-purple-400 justify-between items-center hover:border-purple-100 active:border-purple-100 transition duration-200 ease-out h-full"
             >
               <div className="xl:max-w-lg w-full xl:w-auto flex flex-1 flex-col h-full px-4 py-3">
                 <div className="flex h-full flex-col justify-around gap-2">
@@ -57,7 +56,7 @@ export default async function ProjectsPage({
                   </div>
                   <div className="flex gap-2 flex-col">
                     <h2 className="text-3xl font-bold">Stacks</h2>
-                    <div className="flex gap-2 h-6 w-fit items-center justify-center">
+                    <div className="flex gap-2 min-h-6 w-fit items-center flex-wrap">
                       {project.technologies?.map((tech) => {
                         return Object.entries(tech)
                           .filter(
